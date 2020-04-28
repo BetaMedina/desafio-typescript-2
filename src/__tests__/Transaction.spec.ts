@@ -12,7 +12,7 @@ let connection: Connection;
 
 describe('Transaction', () => {
   beforeAll(async () => {
-    connection = await createConnection('test-connection');
+    connection = await createConnection();
     await connection.runMigrations();
   });
 
@@ -84,7 +84,6 @@ describe('Transaction', () => {
       }),
     );
   });
-
   it('should create tags when inserting new transactions', async () => {
     const transactionsRepository = getRepository(Transaction);
     const categoriesRepository = getRepository(Category);
